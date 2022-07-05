@@ -191,23 +191,25 @@ ffmpeg -h demuxer=libk510_video #查看demuxer的配置参数
 详细运行说明参考[K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
 
 ## 1.3 alsa_demo
+> 위키피디아의 설명에 따르면 ALSA(Advanced Linux Sound Architecture)는 리눅스 커널의 구성요소중 하나로 사운드 카드용 장치 드라이버를 위한 API를 제공하는 소프트웨어 프레임워크이다. 이해한바에 따르면 각기 다른 사운드 장치에 대해서 통합된 인터페이스를 제공해주는 역할을 하는 것이 ALSA라고 생각하면 된다. 참조 <https://revol300.github.io/ALSA/> 카메라에 필요한 기능은 아니라고 생각됨.
 
-alsa demo程序放在`/app/alsa_demo`目录下：
+alsa demo program path `/app/alsa_demo` 목록 아래
 
-运行准备：
-（1）插上耳机
+실행 장치：
+（1）헤드폰
 
-运行alsa demo：
+실행 alsa demo：
 
 ```shell
 cd /app/alsa_demo/
-./alsa_demo c #录音到文件capture.pcm，demo程序仅作参考，可以参考package/alsa_demo的源码。
-./alsa_demo p #播放capture.pcm
+./alsa_demo c # 녹음 파일 capture.pcm，demo 개발자는 package/alsa_demo 의 source code를 참고.
+./alsa_demo p # palyback capture.pcm
 ```
 
 ## 1.4 TWOD demo
+> twod : 2d, immage processing
 
-运行 rotation 使用方法：
+rotation 사용방법：
 
 ```shell
 cd /app/twod_app
@@ -217,7 +219,7 @@ cd /app/twod_app
 将ouput.yuv 拷到yuv显示器上设置尺寸1080 x 1920，显示格式nv12，结果如下
 ![output.yuv](images/sdk_application/driver-twod-output-1080x1920.jpg)
 
-scaler 使用方法
+scaler 사용방법
 
 ```shell
 cd /app/twod_app
@@ -227,7 +229,7 @@ cd /app/twod_app
 将ouput.yuv 拷到yuv显示器上设置尺寸640x480，显示格式nv12，结果如下
 ![ouput.yuv](images/sdk_application/driver-twod-output-640x480.jpg)
 
-运行 rgb2yuv 使用方法：
+rgb2yuv 사용방법：
 
 ```shell
 cd /app/twod_app
@@ -281,10 +283,12 @@ twod_set_rot()
 ```
 
 ## 1.5 RTC demo
+>  Realtime Clock
 
-RTC驱动会注册生成/dev/rtc0设备节点。
+RTC driver는 /dev/rtc0 의 디바이스를 매개로 생성(register)된다.
 
-应用层遵循Linux系统中的标准RTC编程方法调用驱动，在运行参考例程之前，建议通过shell 控制台关闭内核信息打印。
+application은 linux os 의 표준 컴파일 방법에 의한 driver이고 
+application은 应用层遵循Linux系统中的标准RTC编程方法调用驱动，在运行参考例程之前，建议通过shell 控制台关闭内核信息打印。
 
 ```shell
 echo 0 > /proc/sys/kernel/printk

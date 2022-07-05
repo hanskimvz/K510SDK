@@ -1,2 +1,5 @@
-.vscode
 dl/
+buildroot-2020.02.11/
+toolchain/[^.]*
+pkg-download/[^.]*
+*defconfig/
